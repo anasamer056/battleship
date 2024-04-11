@@ -1,0 +1,345 @@
+/* FONTS  */
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-style: normal;
+    src: url('./assets/fonts/Poppins-Medium.woff2') format("woff2"),
+        url('./assets/fonts/Poppins-Medium.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./assets/fonts/Poppins-Regular.woff2') format("woff2"),
+        url('./assets/fonts/Poppins-Regular.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-style: normal;
+    src: url("./assets/fonts/Poppins-Bold.woff2") format('woff2'),
+        url("./assets/fonts/Poppins-Bold.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-style: normal;
+    src: url('./assets/fonts/Poppins-Light.woff2') format('woff2'),
+        url('./assets/fonts/Poppins-Light.woff') format('woff');
+}
+
+/* VARS */
+:root {
+    --drop-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+    --max-width: 900px;
+    --spacing-5: 5px;
+    --spacing-10: 10px;
+    --spacing-15: 15px;
+    --spacing-20: 20px;
+    --spacing-40: 40px;
+    --border-radius: 8px;
+    --white: #fffbfb;
+    --grey: #f0eef1;
+    --red: rgb(246, 109, 109);
+    --green: rgb(98, 221, 92);
+    --title-bar-height: 50px;
+    --back-black: #161616;
+    --back-light-black: #222222;
+    --btn-color: #4a4a4a;
+    --light-grey: #bababa;
+    --transparent-grey: rgba(186, 186, 186, 0.3);
+    --sidebar-left-padding: 18px;
+}
+
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+
+/* UTILITY */
+.v-spacer {
+    height: 20px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-space-bet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-item {
+    display: flex;
+    gap: 12px;
+    > input ,
+    > select {
+        flex: 1 1 100%;
+    }
+    > label {
+        white-space: nowrap;
+    }
+
+}
+
+
+.btn {
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+    padding: var(--spacing-10) var(--spacing-15);
+    border-radius: var(--border-radius);
+    transition: all 0.15s ease-in-out;
+    color: var(--grey);
+    background-color: var(--btn-color);
+}
+
+.btn:hover {
+    filter: brightness(80%);
+}
+
+.btn-trans {
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn-trans:hover,
+.btn-text:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.btn-text {
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    border-left: 1px solid b;
+    padding: var(--spacing-5) var(--spacing-10);
+}
+
+.btn-green {
+    width: 100%;
+    background-color: var(--green);
+}
+
+.btn-red {
+    width: 100%;
+    background-color: var(--red);
+}
+
+/* TITLE */
+html {
+    color: var(--white)
+}
+
+#title-bar {
+    font-size: 30px;
+    font-weight: 700;
+    background-color: var(--back-black);
+}
+
+/* BODY */
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.body-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    flex: 1 1 auto;
+}
+
+
+.sidebar {
+    color: var(--light-grey);
+    background-color: var(--back-black);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    padding: 8px 0;
+    padding-left: var(--sidebar-left-padding);
+    font-weight: 700;
+    color: var(--white);
+}
+
+.list-item {
+    padding: 8px 0;
+    padding-left: var(--sidebar-left-padding);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    >svg {
+        height: 1.4em;
+        fill: var(--light-grey);
+
+        & path {
+            fill: var(--light-grey);
+        }
+
+        & circle {
+            fill: var(--light-grey)
+        }
+    }
+}
+.active-item {
+    background-color: var(--back-light-black)
+}
+
+.list-item:hover {
+    background-color: var(--back-light-black);
+}
+
+#projects-container {
+
+}
+
+.todo-form {
+    border: 3px solid var(--transparent-grey);
+    border-radius: 10px;
+    padding: 12px;
+    
+}
+.priority {
+    width: 5px;
+    min-height: 100%;
+}
+.priority.high {
+    background-color: red;
+}
+.priority.low {
+    background-color: rgb(75, 219, 75);
+}
+.priority.medium {
+    background-color: yellow;
+}
+
+.project-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--sidebar-left-padding);
+}
+
+#content {
+    background-color: var(--back-light-black);
+    padding: 16px;
+}
+
+.todo-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.btn-to-input {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    & .form-btns {
+        display: flex;
+        gap: 8px;
+        > button {
+            flex:auto;
+        }
+    }
+
+}
+
+/* TODO */
+.todo-wrapper {
+    display: flex;
+    cursor: pointer;
+ 
+}
+.todo-details {
+    display: flex;
+    flex: auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.todo-circle {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    & svg {
+        height: 1.1em;
+        fill: white;
+    }
+}
+.todo-circle:hover::after{
+    content: "✔";
+    position: absolute;
+    right: 14%;
+    color: white;
+    font-size: 0.9em;
+    
+}
+.todo-title{
+    flex: auto;
+}
+input[type="date"] {
+    min-width: 120px;
+}
+
+.remove-btn {
+    vertical-align: middle;
+    visibility: hidden;
+    cursor: pointer;
+    padding: 4px;
+    background-color: transparent;
+    color: var(--white);
+    border: 0;
+    font-size: 1.2em;
+}
+
+.todo-wrapper:hover .remove-btn,
+.project-wrapper:hover .remove-btn {
+    visibility: visible;
+}
+
+.form-visible{
+    display: flex;
+    flex-direction: column;
+}
+.form-invisible{
+    display: none;
+}
+
+.update-todo{
+    margin: auto;
+    padding: 12px;
+}
